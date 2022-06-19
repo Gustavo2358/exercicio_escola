@@ -5,7 +5,7 @@ public enum DisciplinaTipo {
     MATEMATICA("Matemática"),
     BIOLOGIA("Biologia"),
     QUIMICA("Química"),
-    GEOGRAFICA("Geografia"),
+    GEOGRAFIA("Geografia"),
     FISICA("Física"),
     EDUCACAO_FISICA("Educação Física"),
     ARTES("Artes"),
