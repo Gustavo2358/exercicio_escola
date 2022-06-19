@@ -12,9 +12,13 @@ public enum DisciplinaTipo {
     SOCIOLOGIA("Sociologia"),
     FILOSOFIA("Filosofia");
 
-    public final String label;
+    private final String label;
 
     DisciplinaTipo(String label) {
         this.label = label;
+    }
+
+    public String getLabel() {
+        return label;
     }
 }

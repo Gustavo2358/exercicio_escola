@@ -54,16 +54,7 @@ public class AlunoFileRepository implements AlunoRepository{
     @Override
     public boolean add(Aluno aluno) {
         List<Aluno> alunosList = getAll();
-        TreeSet<Aluno> alunos = new TreeSet<>(new Comparator<Aluno>() {
-            @Override
-            public int compare(Aluno aluno1, Aluno aluno2) {
-                long id1 = aluno1.getId();
-                long id2 = aluno2.getId();
-                if(id1 < id2) return -1;
-                else if(id1 > id2) return 1;
-                else return 0;
-            }
-        });
+        TreeSet<Aluno> alunos = new TreeSet<>();
         alunos.addAll(alunosList);
         alunos.add(aluno);
 

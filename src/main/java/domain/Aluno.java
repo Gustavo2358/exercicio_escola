@@ -1,19 +1,20 @@
 package domain;
 
-import java.util.HashSet;
-import java.util.List;
 
-public class Aluno {
+import java.util.List;
+import java.util.TreeSet;
+
+public class Aluno implements Comparable<Aluno>{
     private long id;
     private String nome;
-    private HashSet<Disciplina> disciplinas;
+    private TreeSet<Disciplina> disciplinas;
 
-    public Aluno(){};
+    public Aluno(){}
 
     public Aluno(long id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.disciplinas = new HashSet<>();
+        this.disciplinas = new TreeSet<>();
         disciplinas.addAll(List.of(
                     new Disciplina(DisciplinaTipo.PORTUGUES),
                     new Disciplina(DisciplinaTipo.MATEMATICA),
@@ -44,11 +45,11 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public HashSet<Disciplina> getDisciplinas() {
+    public TreeSet<Disciplina> getDisciplinas() {
         return disciplinas;
     }
 
-    public void setDisciplinas(HashSet<Disciplina> disciplinas) {
+    public void setDisciplinas(TreeSet<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
     }
 
@@ -61,4 +62,8 @@ public class Aluno {
                 '}';
     }
 
+    @Override
+    public int compareTo(Aluno aluno) {
+        return Long.compare(id, aluno.getId());
+    }
 }

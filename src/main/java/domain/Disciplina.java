@@ -2,7 +2,7 @@ package domain;
 
 import java.math.BigDecimal;
 
-public class Disciplina {
+public class Disciplina implements Comparable{
     private DisciplinaTipo tipo;
     private BigDecimal nota;
 
@@ -35,5 +35,11 @@ public class Disciplina {
                 "tipo=" + tipo +
                 ", nota=" + nota +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Disciplina disciplina = (Disciplina) o;
+        return tipo.getLabel().compareTo(disciplina.getTipo().getLabel());
     }
 }
