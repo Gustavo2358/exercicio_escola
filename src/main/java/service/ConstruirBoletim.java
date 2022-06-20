@@ -1,6 +1,7 @@
 package service;
 
 import domain.Aluno;
+import domain.Boletim;
 import domain.Disciplina;
 
 import java.util.Arrays;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class ConstruirBoletim {
 
-    public static String execute(Aluno aluno){
+    public static Boletim execute(Aluno aluno){
         List<String> tableLabels = Arrays.asList(" ","Primeiro Bimestre", "Segundo Bimestre",
                 "Terceiro Bimestre", "Quarto Bimestre");
         //pega o tamanho do maior label
@@ -20,13 +21,12 @@ public class ConstruirBoletim {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append("### BOLETIM ESCOLAR ###\n");
-        stringBuilder.append("Nome: " + aluno.getNome() + "\tId: " + aluno.getId() + "\n");
+        stringBuilder.append(String.format("Nome: %s \tId: %d \n",
+                aluno.getNome(), aluno.getId()));
 
         //cabeçalho
         String hyphens = "+" + "-".repeat(CELL_SIZE);
-        for (int k = 0; k < tableLabels.size(); k++) {
-            stringBuilder.append(hyphens);
-        }
+        stringBuilder.append(hyphens.repeat(tableLabels.size()));
         stringBuilder.append("+");
         stringBuilder.append("\n");
         String  cellFormat = "| %-"+ (CELL_SIZE - 1) +"s";
@@ -36,9 +36,7 @@ public class ConstruirBoletim {
         stringBuilder.append("|");
         stringBuilder.append("\n");
 
-        for (int k = 0; k < tableLabels.size(); k++) {
-            stringBuilder.append(hyphens);
-        }
+        stringBuilder.append(hyphens.repeat(tableLabels.size()));
         stringBuilder.append("+");
         stringBuilder.append("\n");
 
@@ -53,11 +51,9 @@ public class ConstruirBoletim {
             stringBuilder.append("\n");
         }
         //linha final
-        for (int k = 0; k < tableLabels.size(); k++) {
-            stringBuilder.append(hyphens);
-        }
+        stringBuilder.append(hyphens.repeat(tableLabels.size()));
         stringBuilder.append("+");
         stringBuilder.append("\n");
-        return stringBuilder.toString();
+        return new Boletim(aluno.getNome(), aluno.getId(), stringBuilder.toString());
     }
 }
