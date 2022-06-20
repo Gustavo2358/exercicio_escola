@@ -76,6 +76,31 @@ public class AlunoFileRepository implements AlunoRepository{
         }
     }
 
+    @Override
+    public Aluno getById(long id) {
+        checkPath();
+        List<Aluno> all = getAll();
+        return all.get((int)id - 1);
+    }
+
+    @Override
+    public boolean edit(Aluno aluno) {
+        checkPath();
+        if(!remove(aluno)) return false;
+        return add(aluno);
+
+    }
+
+    public boolean remove(Aluno aluno) {
+        checkPath();
+
+        List<Aluno> alunosList = getAll();
+        TreeSet<Aluno> alunos = new TreeSet<>();
+        alunos.addAll(alunosList);
+        alunos.remove(aluno);
+        return writeToJson(alunos);
+    }
+
 
 }
 

@@ -20,4 +20,12 @@ public class AlunoService {
     public List<Aluno> getAll(){
         return repository.getAll();
     }
+
+    public Aluno getById(long id){
+        return repository.getById(id);
+    }
+
+    public boolean edit(Aluno aluno){
+        return repository.edit(aluno);
+    }
 }

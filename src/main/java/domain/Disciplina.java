@@ -4,13 +4,19 @@ import java.math.BigDecimal;
 
 public class Disciplina implements Comparable{
     private DisciplinaTipo tipo;
-    private BigDecimal nota;
+    private BigDecimal notaPrimeiroBimestre;
+    private BigDecimal notaSegundoBimestre;
+    private BigDecimal notaTerceiroBimestre;
+    private BigDecimal notaQuartoBimestre;
 
     public Disciplina(){}
 
     public Disciplina(DisciplinaTipo tipo) {
         this.tipo = tipo;
-        this.nota = BigDecimal.ZERO;
+        this.notaPrimeiroBimestre = BigDecimal.ZERO;
+        this.notaSegundoBimestre = BigDecimal.ZERO;
+        this.notaTerceiroBimestre = BigDecimal.ZERO;
+        this.notaQuartoBimestre = BigDecimal.ZERO;
     }
 
     public DisciplinaTipo getTipo() {
@@ -21,19 +27,46 @@ public class Disciplina implements Comparable{
         this.tipo = tipo;
     }
 
-    public BigDecimal getNota() {
-        return nota;
+    public BigDecimal getNotaPrimeiroBimestre() {
+        return notaPrimeiroBimestre;
     }
 
-    public void setNota(BigDecimal nota) {
-        this.nota = nota;
+    public void setNotaPrimeiroBimestre(BigDecimal notaPrimeiroBimestre) {
+        this.notaPrimeiroBimestre = notaPrimeiroBimestre;
+    }
+
+    public BigDecimal getNotaSegundoBimestre() {
+        return notaSegundoBimestre;
+    }
+
+    public void setNotaSegundoBimestre(BigDecimal notaSegundoBimestre) {
+        this.notaSegundoBimestre = notaSegundoBimestre;
+    }
+
+    public BigDecimal getNotaTerceiroBimestre() {
+        return notaTerceiroBimestre;
+    }
+
+    public void setNotaTerceiroBimestre(BigDecimal notaTerceiroBimestre) {
+        this.notaTerceiroBimestre = notaTerceiroBimestre;
+    }
+
+    public BigDecimal getNotaQuartoBimestre() {
+        return notaQuartoBimestre;
+    }
+
+    public void setNotaQuartoBimestre(BigDecimal notaQuartoBimestre) {
+        this.notaQuartoBimestre = notaQuartoBimestre;
     }
 
     @Override
     public String toString() {
         return "Disciplina{" +
                 "tipo=" + tipo +
-                ", nota=" + nota +
+                ", notaPrimeiroBimestre=" + notaPrimeiroBimestre +
+                ", notaSegundoBimestre=" + notaSegundoBimestre +
+                ", notaTerceiroBimestre=" + notaTerceiroBimestre +
+                ", notaQuartoBimestre=" + notaQuartoBimestre +
                 '}';
     }
 
