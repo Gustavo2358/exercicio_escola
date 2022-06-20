@@ -18,11 +18,6 @@ public class ExibirNotas {
     }
 
     public void execute(){
-
-        System.out.println("Digite o código do Aluno: (ou qualquer letra para sair) ");
-        List<Aluno> alunos = alunoService.getAll();
-        exibirListaDeAlunos(alunos);
-        //TODO validar
         Aluno aluno = getAluno();
         if (aluno == null) return;
 
@@ -49,6 +44,9 @@ public class ExibirNotas {
     }
 
     protected Aluno getAluno() {
+        System.out.println("Digite o código do Aluno: (ou qualquer letra para sair) ");
+        List<Aluno> alunos = alunoService.getAll();
+        exibirListaDeAlunos(alunos);
         long opt;
         try {
             opt = Long.parseLong(sc.nextLine());

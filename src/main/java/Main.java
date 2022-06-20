@@ -2,6 +2,7 @@ import domain.Aluno;
 import repository.AlunoFileRepository;
 import service.AlunoService;
 import view.CadastrarAluno;
+import view.ExibirBoletim;
 import view.ExibirNotas;
 import view.LancarNotas;
 
@@ -24,7 +25,8 @@ public class Main {
             System.out.println("1 - Cadastrar Aluno\n" +
                     "2 - Mostrar Alunos Cadastrados\n" +
                     "3 - Lançar Notas\n" +
-                    "4 - Exibir Notas por disciplina"
+                    "4 - Exibir Notas por disciplina\n" +
+                    "5 - Exibir/Enviar Boletim"
                     );
 
             //TODO validar
@@ -44,6 +46,10 @@ public class Main {
                 case 4:
                     ExibirNotas exibirNotas = new ExibirNotas(alunoService);
                     exibirNotas.execute();
+                    break;
+                case 5:
+                    ExibirBoletim exibirBoletim = new ExibirBoletim(alunoService);
+                    exibirBoletim.execute();
 
             }
         }

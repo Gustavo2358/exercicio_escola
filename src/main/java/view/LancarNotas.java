@@ -5,7 +5,6 @@ import domain.Disciplina;
 import service.AlunoService;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 
 public class LancarNotas extends ExibirNotas{
@@ -17,14 +16,10 @@ public class LancarNotas extends ExibirNotas{
     @Override
     public void execute(){
 
-        System.out.println("Digite o código do Aluno: (ou qualquer letra para sair) ");
-        List<Aluno> alunos = super.alunoService.getAll();
-        super.exibirListaDeAlunos(alunos);
-        //TODO validar
-        Aluno aluno = super.getAluno();
+        Aluno aluno = getAluno();
         if (aluno == null) return;
 
-        Disciplina disciplina = super.getDisciplina(aluno);
+        Disciplina disciplina = getDisciplina(aluno);
         if (disciplina == null) return;
 
         aluno.getDisciplinas().remove(disciplina);
